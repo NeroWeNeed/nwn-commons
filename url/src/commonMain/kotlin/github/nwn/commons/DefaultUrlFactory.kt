@@ -1,0 +1,52 @@
+package github.nwn.commons
+
+import kotlin.String
+import kotlin.collections.Map
+
+public object DefaultUrlFactory : UrlFactory {
+  public override val schemeInfo: Map<String, UrlSchemeInfo> = mapOf("acap" to
+      UrlSchemeInfo("acap",674,""),
+      "afp" to UrlSchemeInfo("afp",548,""),
+      "dict" to UrlSchemeInfo("dict",2628,""),
+      "dns" to UrlSchemeInfo("dns",53,""),
+      "file" to UrlSchemeInfo("file",-1,"localhost"),
+      "ftp" to UrlSchemeInfo("ftp",21,""),
+      "git" to UrlSchemeInfo("git",9418,""),
+      "gopher" to UrlSchemeInfo("gopher",70,""),
+      "http" to UrlSchemeInfo("http",80,""),
+      "https" to UrlSchemeInfo("https",443,""),
+      "imap" to UrlSchemeInfo("imap",143,""),
+      "ipp" to UrlSchemeInfo("ipp",631,""),
+      "ipps" to UrlSchemeInfo("ipps",631,""),
+      "irc" to UrlSchemeInfo("irc",194,""),
+      "ircs" to UrlSchemeInfo("ircs",6697,""),
+      "ldap" to UrlSchemeInfo("ldap",389,""),
+      "ldaps" to UrlSchemeInfo("ldaps",636,""),
+      "mms" to UrlSchemeInfo("mms",1755,""),
+      "msrp" to UrlSchemeInfo("msrp",2855,""),
+      "msrps" to UrlSchemeInfo("msrps",-1,""),
+      "mtqp" to UrlSchemeInfo("mtqp",1038,""),
+      "nfs" to UrlSchemeInfo("nfs",111,""),
+      "nntp" to UrlSchemeInfo("nntp",119,""),
+      "nntps" to UrlSchemeInfo("nntps",563,""),
+      "pop" to UrlSchemeInfo("pop",110,""),
+      "prospero" to UrlSchemeInfo("prospero",1525,""),
+      "redis" to UrlSchemeInfo("redis",6379,""),
+      "rsync" to UrlSchemeInfo("rsync",873,""),
+      "rtsp" to UrlSchemeInfo("rtsp",554,""),
+      "rtsps" to UrlSchemeInfo("rtsps",322,""),
+      "rtspu" to UrlSchemeInfo("rtspu",5005,""),
+      "sftp" to UrlSchemeInfo("sftp",22,""),
+      "smb" to UrlSchemeInfo("smb",445,""),
+      "snmp" to UrlSchemeInfo("snmp",161,""),
+      "ssh" to UrlSchemeInfo("ssh",22,""),
+      "steam" to UrlSchemeInfo("steam",-1,""),
+      "svn" to UrlSchemeInfo("svn",3690,""),
+      "telnet" to UrlSchemeInfo("telnet",23,""),
+      "ventrilo" to UrlSchemeInfo("ventrilo",3784,""),
+      "vnc" to UrlSchemeInfo("vnc",5900,""),
+      "wais" to UrlSchemeInfo("wais",210,""),
+      "ws" to UrlSchemeInfo("ws",80,""),
+      "wss" to UrlSchemeInfo("wss",443,""),
+      "xmpp" to UrlSchemeInfo("xmpp",-1,""))
+}

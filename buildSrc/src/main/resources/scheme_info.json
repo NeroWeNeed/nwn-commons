@@ -1,0 +1,179 @@
+[
+  {
+    "name": "acap",
+    "port": 674
+  },
+  {
+    "name": "afp",
+    "port": 548
+  },
+  {
+    "name": "dict",
+    "port": 2628
+  },
+  {
+    "name": "dns",
+    "port": 53
+  },
+  {
+    "name": "file",
+    "port": -1,
+    "host": "localhost"
+  },
+  {
+    "name": "ftp",
+    "port": 21
+  },
+  {
+    "name": "git",
+    "port": 9418
+  },
+  {
+    "name": "gopher",
+    "port": 70
+  },
+  {
+    "name": "http",
+    "port": 80
+  },
+  {
+    "name": "https",
+    "port": 443
+  },
+  {
+    "name": "imap",
+    "port": 143
+  },
+  {
+    "name": "ipp",
+    "port": 631
+  },
+  {
+    "name": "ipps",
+    "port": 631
+  },
+  {
+    "name": "irc",
+    "port": 194
+  },
+  {
+    "name": "ircs",
+    "port": 6697
+  },
+  {
+    "name": "ldap",
+    "port": 389
+  },
+  {
+    "name": "ldaps",
+    "port": 636
+  },
+  {
+    "name": "mms",
+    "port": 1755
+  },
+  {
+    "name": "msrp",
+    "port": 2855
+  },
+  {
+    "name": "msrps",
+    "port": -1
+  },
+  {
+    "name": "mtqp",
+    "port": 1038
+  },
+  {
+    "name": "nfs",
+    "port": 111
+  },
+  {
+    "name": "nntp",
+    "port": 119
+  },
+  {
+    "name": "nntps",
+    "port": 563
+  },
+  {
+    "name": "pop",
+    "port": 110
+  },
+  {
+    "name": "prospero",
+    "port": 1525
+  },
+  {
+    "name": "redis",
+    "port": 6379
+  },
+  {
+    "name": "rsync",
+    "port": 873
+  },
+  {
+    "name": "rtsp",
+    "port": 554
+  },
+  {
+    "name": "rtsps",
+    "port": 322
+  },
+  {
+    "name": "rtspu",
+    "port": 5005
+  },
+  {
+    "name": "sftp",
+    "port": 22
+  },
+  {
+    "name": "smb",
+    "port": 445
+  },
+  {
+    "name": "snmp",
+    "port": 161
+  },
+  {
+    "name": "ssh",
+    "port": 22
+  },
+  {
+    "name": "steam",
+    "port": -1
+  },
+  {
+    "name": "svn",
+    "port": 3690
+  },
+  {
+    "name": "telnet",
+    "port": 23
+  },
+  {
+    "name": "ventrilo",
+    "port": 3784
+  },
+  {
+    "name": "vnc",
+    "port": 5900
+  },
+  {
+    "name": "wais",
+    "port": 210
+  },
+  {
+    "name": "ws",
+    "port": 80
+  },
+  {
+    "name": "wss",
+    "port": 443
+  },
+  {
+    "name": "xmpp",
+    "port": -1
+  }
+]
