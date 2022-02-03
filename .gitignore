@@ -11,6 +11,7 @@
 .mtj.tmp/
 .idea/
 .gradle/
+gradle/wrapper/
 
 # Package Files #
 *.jar
@@ -23,3 +24,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Gradle Stuff
+gradlew
+gradlew.bat
