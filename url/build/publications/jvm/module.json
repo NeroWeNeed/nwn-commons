@@ -1,0 +1,84 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../url/1.0-SNAPSHOT/url-1.0-SNAPSHOT.module",
+    "group": "github.nwn",
+    "module": "url",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "url-jvm-1.0-SNAPSHOT.jar",
+          "url": "url-jvm-1.0-SNAPSHOT.jar",
+          "size": 29877,
+          "sha512": "83982f5ac1ef87adacc90af8dc1536188746dab6fdae8c74ff5bfdf5da368a2e64765e28f406317ee0e5289926652bbd6434c94b5ae9b79941c968fac4ef96d8",
+          "sha256": "77d10e224850f2e12a32f044a1b1fa13f1b6a544e034451e60c92a50f6a3baf3",
+          "sha1": "7ffe4be49b02cc54dab76036741e14eebfad8d49",
+          "md5": "f704a155b9f6013f2efa8ab49908a2e4"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.10"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "url-jvm-1.0-SNAPSHOT.jar",
+          "url": "url-jvm-1.0-SNAPSHOT.jar",
+          "size": 29877,
+          "sha512": "83982f5ac1ef87adacc90af8dc1536188746dab6fdae8c74ff5bfdf5da368a2e64765e28f406317ee0e5289926652bbd6434c94b5ae9b79941c968fac4ef96d8",
+          "sha256": "77d10e224850f2e12a32f044a1b1fa13f1b6a544e034451e60c92a50f6a3baf3",
+          "sha1": "7ffe4be49b02cc54dab76036741e14eebfad8d49",
+          "md5": "f704a155b9f6013f2efa8ab49908a2e4"
+        }
+      ]
+    }
+  ]
+}

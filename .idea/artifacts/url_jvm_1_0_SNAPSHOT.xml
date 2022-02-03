@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="url-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/url/build/libs</output-path>
+    <root id="archive" name="url-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="nwn-commons.url.jvmMain" />
+    </root>
+  </artifact>
+</component>
