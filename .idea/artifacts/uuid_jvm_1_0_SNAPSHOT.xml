@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="uuid-jvm-1.0-SNAPSHOT">
-    <output-path>$PROJECT_DIR$/uuid/build/libs</output-path>
-    <root id="archive" name="uuid-jvm-1.0-SNAPSHOT.jar">
-      <element id="module-output" name="nwn-commons.uuid.jvmMain" />
-    </root>
-  </artifact>
-</component>
