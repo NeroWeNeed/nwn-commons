@@ -1,6 +1,6 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("multiplatform") version libs.versions.kotlin.get()
+    kotlin("multiplatform")
+    `maven-publish`
 }
 
 
@@ -32,4 +32,23 @@ tasks.register<CodeGenerationTask>("urlFactoryCodeGenerator") {
     classPackage = "github.nwn.commons"
     sourceSet = "commonMain"
 
+}
+
+configure<PublishingExtension> {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/${System.getenv("GithubUsername")}/nwn-commons")
+            credentials {
+                username = System.getenv("GithubUsername")
+                password = System.getenv("GithubToken")
+            }
+
+        }
+    }
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["kotlin"])
+        }
+    }
 }
