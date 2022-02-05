@@ -18,6 +18,7 @@ expect object SHA1UUIDNameHasher : UUIDNameHasher
 expect object MD5UUIDNameHasher : UUIDNameHasher
 
 
+@Suppress("MemberVisibilityCanBePrivate")
 open class MemoryUUIDStableStoreHandler : UUIDStableStoreHandler {
     protected var state: UUIDBuildState? = null
 
@@ -34,6 +35,7 @@ expect object DefaultFileUUIDStableStoreHandler : FileUUIDStableStoreHandler
 
 object DefaultMemoryUUIDStableStoreHandler : MemoryUUIDStableStoreHandler()
 
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 data class UUID(internal val high: ULong, internal val low: ULong) : Comparable<UUID> {
 
     internal val timeLow: UInt
@@ -87,7 +89,7 @@ data class UUID(internal val high: ULong, internal val low: ULong) : Comparable<
         fun newUUID(stableStoreHandler: UUIDStableStoreHandler): UUID {
             return stableStoreHandler.update { state ->
                 val currentInstant = Clock.System.now()
-                /* Default minus operation returns the nanoseconds in as a signed 64 bit integer.
+                /* Default minus operation returns the nanoseconds in as a signed 64-bit integer.
                 As a result, this causes an overflow because of the large timespan. Since the Gregorian Reform Epoch's
                 nanoseconds are always 0, the actual time can be computed by getting the difference in milliseconds,
                 converting it to nanoseconds, and adding the nanoseconds of the currentInstant.
@@ -118,10 +120,26 @@ data class UUID(internal val high: ULong, internal val low: ULong) : Comparable<
     }
 
     companion object {
+        /**
+         * Represents an empty UUID.
+         */
         val Nil = UUID(0UL, 0UL)
+
+        /**
+         * Represents the UUID used to represent the DNS namespace.
+         */
         val DNS = UUID(0x80b400c04fd430c8UL, 0x6ba7b8109dad11d1UL)
+        /**
+         * Represents the UUID used to represent the X500 namespace.
+         */
         val X500 = UUID(0x80b400c04fd430c8UL, 0x6ba7b8149dad11d1UL)
+        /**
+         * Represents the UUID used to represent the URL namespace.
+         */
         val URL = UUID(0x80b400c04fd430c8UL, 0x6ba7b8119dad11d1UL)
+        /**
+         * Represents the UUID used to represent the OID namespace.
+         */
         val OID = UUID(0x80b400c04fd430c8UL, 0x6ba7b8129dad11d1UL)
         internal const val RESERVED: ULong = 0x8000000000000000UL
 
@@ -157,7 +175,7 @@ data class UUID(internal val high: ULong, internal val low: ULong) : Comparable<
          * [RC4122 Section 4.3](https://datatracker.ietf.org/doc/html/rfc4122#section-4.3).
          * @param namespace The namespace [UUID]. This UUID is prepended with the bytes from the [name] parameter
          * when hashing. There are predefined namespaces for common usages, such as URLs. A custom namespace UUID can
-         * be used in place of those if desired.
+         * be used in place if desired.
          * @param name The name to be hashed for the UUID. This parameter is turned into a [ByteArray] based on the
          * [charset] specified.
          * @param charset The charset to use when turning [name] into a [ByteArray]
