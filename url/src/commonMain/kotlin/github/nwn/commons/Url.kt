@@ -36,6 +36,7 @@ private const val URI =
 private const val pchar =
     "(?:(?:[A-Za-z]|[0-9]|[\\u002D\\u002E\\u005F\\u007E])|(?:\\u0025[0-9A-Fa-f]{2})|[\\u0021\\u0024\\u0026\\u0027\\u0028\\u0029\\u002A\\u002B\\u002C\\u003B\\u003D]|\\u003A|\\u0040)"
 private const val pseparator = "\\u002F"
+
 private val regex = Regex(URI)
 private const val SCHEME_INDEX = 1
 private const val USERINFO_INDEX = 2
@@ -120,6 +121,7 @@ data class Query(val value: String) : Map<String, String> {
     override fun toString(): String {
         return value
     }
+
 }
 
 data class Authority(val userInfo: String, val host: String, val port: Int) {
@@ -181,23 +183,8 @@ data class Path(val value: String) : List<String> {
 
 }
 
-fun String.percentEncoded(): String {
-    val regex = Regex("(?!$pchar|$pseparator)")
-    val sb = StringBuilder()
-    val ranges = regex.findAll(this).map { it.range.first }.toList()
-    val iter = ranges.iterator()
-    if (!iter.hasNext())
-        return this
-    var current = iter.next()
-    sb.append(this.substring(0 until current))
-    while (iter.hasNext()) {
-        sb.append("%${this[current].code.toString(16).uppercase()}")
-        val current2 = iter.next()
-        sb.append(this.substring(current + 1 until current2))
-        current = current2
-    }
-    return sb.toString()
-}
+expect fun String.percentEncoded(): String
+expect fun String.percentDecoded(): String
 
 class UrlParseException(val url: String) : Exception("Invalid url: $url")
 
