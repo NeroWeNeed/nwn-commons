@@ -12,4 +12,4 @@ fun Url.toFile(): File =
     )
 
 fun Url.toJVM(): URL = URL(this.toString())
-fun File.toUrl() = Url("${FILE_SCHEME_NAME}:${this.path.replace(File.pathSeparatorChar,'/')}")
+fun File.toUrl() = Url("${FILE_SCHEME_NAME}:${this.path.replace(File.pathSeparatorChar,'/').percentEncoded()}")

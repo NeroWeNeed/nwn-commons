@@ -178,7 +178,7 @@ data class Path(val value: String) : List<String> {
     }
 
     override fun toString(): String {
-        return value
+        return "/$value"
     }
 
 }
