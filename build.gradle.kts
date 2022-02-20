@@ -1,6 +1,6 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("multiplatform") version libs.versions.kotlin.get() apply false
+    kotlin("multiplatform") version "1.6.10" apply false
     `maven-publish`
 }
 allprojects {
