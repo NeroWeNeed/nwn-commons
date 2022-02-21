@@ -13,3 +13,4 @@ dependencyResolutionManagement {
 }
 include("url")
 include("uuid")
+include("mime")

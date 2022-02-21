@@ -11,6 +11,9 @@ allprojects {
 subprojects {
     apply(plugin = "org.gradle.maven-publish")
     apply(plugin = "org.jetbrains.kotlin.multiplatform")
+    repositories {
+        mavenCentral()
+    }
     configure<PublishingExtension> {
         repositories {
             maven {
