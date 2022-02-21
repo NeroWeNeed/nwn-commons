@@ -22,5 +22,10 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
+        all {
+            languageSettings {
+                optIn("kotlin.ExperimentalUnsignedTypes")
+            }
+        }
     }
 }
