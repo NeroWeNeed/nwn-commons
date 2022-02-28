@@ -16,6 +16,11 @@ fun MimeTypeSet.parse(file: File) : MimeType? {
     val initial = if (maxByteRequestSizeInternal > 0) {
         file.inputStream().use {
             it.readNBytes(maxByteRequestSizeInternal)
+        }.let {
+            if (it.isNotEmpty())
+                it
+            else
+                null
         }
     } else {
         null
@@ -23,6 +28,8 @@ fun MimeTypeSet.parse(file: File) : MimeType? {
     return mimeTypeParserInternal.firstOrNull { mimeTypeParser ->
         if (mimeTypeParser.fileExtensions.contains(ext)) {
             if (mimeTypeParser.headerValidator != null && initial != null) {
+                if (initial.size < mimeTypeParser.headerValidator.byteRequestSize)
+                    return@firstOrNull false
                 val bytes = initial.sliceArray(0 until mimeTypeParser.headerValidator.byteRequestSize)
                 mimeTypeParser.headerValidator.invoke(bytes)
             }
@@ -35,6 +42,8 @@ fun MimeTypeSet.parse(file: File) : MimeType? {
     }?.mimeType ?: run {
         mimeTypeParserInternal.firstOrNull { mimeTypeParser ->
             if (mimeTypeParser.headerValidator != null && initial != null) {
+                if (initial.size < mimeTypeParser.headerValidator.byteRequestSize)
+                    return@firstOrNull false
                 val bytes = initial.sliceArray(0 until mimeTypeParser.headerValidator.byteRequestSize)
                 mimeTypeParser.headerValidator.invoke(bytes)
             }
