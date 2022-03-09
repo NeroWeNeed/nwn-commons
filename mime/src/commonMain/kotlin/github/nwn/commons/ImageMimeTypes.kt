@@ -25,7 +25,7 @@ fun MimeTypeParserSetBuilder.imageTypes() {
                     return@header false
             }
             (8 until 12).forEach {
-                if (bytes[it] != WEBP_FILE_HEADER_P2[it])
+                if (bytes[it] != WEBP_FILE_HEADER_P2[it-8])
                     return@header false
             }
             true
