@@ -12,6 +12,8 @@ internal actual fun getMACAddress(): ByteArray = Inet6Address.getLocalHost().let
     NetworkInterface.getByInetAddress(it).hardwareAddress
 }
 
+fun UUID.toJVM(): java.util.UUID = java.util.UUID(this.high.toLong(), this.low.toLong())
+fun java.util.UUID.fromJVM(): UUID = UUID(this.mostSignificantBits.toULong(), this.leastSignificantBits.toULong())
 
 actual fun UUID.toByteArray(): ByteArray {
     return ByteArrayOutputStream(16).use { byteArrayOutputStream ->

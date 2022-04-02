@@ -5,7 +5,7 @@ plugins {
 }
 allprojects {
     group = "github.nwn"
-    version = "1.0.2-SNAPSHOT"
+    version = "1.0.3-SNAPSHOT"
 }
 
 subprojects {
