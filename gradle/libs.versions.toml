@@ -1,0 +1,15 @@
+[versions]
+kotlin = "1.7.21"
+auto-service = "1.0.0-SNAPSHOT"
+kotlinx-serialization = "1.4.1"
+ksp = "1.7.21-1.0.8"
+
+[libraries]
+kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.4.0"
+kotlin-graph = "github.nwn:kotlin-graph:0.2.3-SNAPSHOT"
+autoservice-annotations = { module = "github.nwn.ksp.auto.service:auto-service-annotations", version.ref = "auto-service" }
+autoservice-processor = { module = "github.nwn.ksp.auto.service:auto-service-processor", version.ref = "auto-service" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

@@ -1,16 +1,28 @@
 rootProject.name = "nwn-commons"
 
-
-
-enableFeaturePreview("VERSION_CATALOGS")
 dependencyResolutionManagement {
-    versionCatalogs {
-        create("libs") {
-            version("kotlin", "1.6.10")
-            alias("kotlinx-datetime").to("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven {
+            url = uri("https://maven.pkg.github.com/${System.getenv("GithubUsername")}/nwn-commons")
+            credentials {
+                username = System.getenv("GithubUsername")
+                password = System.getenv("GithubToken")
+            }
         }
     }
 }
+
+
 include("url")
 include("uuid")
 include("mime")
+include("templater")
+include("templater:gradle-plugin")
+findProject(":templater:gradle-plugin")?.name = "gradle-plugin"
+include("templater:kotlin-plugin")
+findProject(":templater:kotlin-plugin")?.name = "kotlin-plugin"
+include("templater:api")
+findProject(":templater:api")?.name = "api"
+include("localization")

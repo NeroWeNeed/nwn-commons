@@ -1,10 +1,37 @@
 package github.nwn.commons
 
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+
+
+@Serializable(with = MimeType.Serializer::class)
 data class MimeType(val type: Category, val subtype: String) {
+
+    object Serializer : KSerializer<MimeType> {
+        override val descriptor: SerialDescriptor =
+            PrimitiveSerialDescriptor("github.nwn.commons.MimeType", PrimitiveKind.STRING)
+
+        override fun deserialize(decoder: Decoder): MimeType {
+            val (category, subType) = decoder.decodeString().split('/')
+            return MimeType(Category[category], subType)
+        }
+
+        override fun serialize(encoder: Encoder, value: MimeType) {
+            encoder.encodeString(value.toString())
+        }
+
+    }
+
     override fun toString(): String {
         return "${type.name}/$subtype"
     }
 }
+
 
 abstract class MimeTypeSet {
     protected abstract val mimeTypeParsers: List<MimeTypeParser>
@@ -15,7 +42,7 @@ abstract class MimeTypeSet {
     internal val mimeTypeParserInternal: List<MimeTypeParser>
         get() = mimeTypeParsers
     internal val maxByteRequestSizeInternal: Int
-    get() = maxByteRequestSize
+        get() = maxByteRequestSize
 }
 
 open class SimpleMimeTypeSet(mimeTypeParsers: Iterable<MimeTypeParser>) : MimeTypeSet() {
@@ -30,8 +57,24 @@ open class SimpleMimeTypeSet(mimeTypeParsers: Iterable<MimeTypeParser>) : MimeTy
 
 expect fun MimeTypeSet.parse(url: Url): MimeType?
 
-
+@Serializable
 sealed class Category(val name: String) {
+    companion object {
+        private val categories =
+            mapOf<String, Category>(
+                Image.name to Image,
+                Application.name to Application,
+                Audio.name to Audio,
+                Font.name to Font,
+                Model.name to Model,
+                Text.name to Text,
+                Example.name to Example,
+                Video.name to Video,
+            )
+
+        operator fun get(name: String): Category = categories.getValue(name)
+    }
+
     object Image : Category("image")
     object Application : Category("application")
     object Audio : Category("audio")
