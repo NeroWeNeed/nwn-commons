@@ -60,7 +60,7 @@ expect fun MimeTypeSet.parse(url: Url): MimeType?
 @Serializable
 sealed class Category(val name: String) {
     companion object {
-        private val categories =
+        private val categories by lazy {
             mapOf<String, Category>(
                 Image.name to Image,
                 Application.name to Application,
@@ -71,6 +71,7 @@ sealed class Category(val name: String) {
                 Example.name to Example,
                 Video.name to Video,
             )
+        }
 
         operator fun get(name: String): Category = categories.getValue(name)
     }
